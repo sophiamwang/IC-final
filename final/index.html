@@ -84,30 +84,36 @@
                 <div id="temp">
                     <dl>
                         <dt>Temperature</dt>
-                        <button type="button">cool</button>
-                        <button type="button">warm</button>
+                        <div class = "temperature">
+                            <button type="button" value = "cool">cool</button>
+                            <button type="button" value = "warm">warm</button>
+                        </div>
                     </dl>
                 </div><!--end #temp-->
                 </div><!--end .col-->
 
                 <div class="col-md-4 col-sm-12 center-block" align="center">
-                <div id="soil">
+                <div id="soil" class = "soil">
                     
                     <dl>
                         <dt>Soil</dt>
-                        <button type="button">stone/gravel</button>
-                        <button type="button">sand</button>
+                        <div class = "soil">
+                            <button type="button" value = "stone/gravel">stone/gravel</button>
+                            <button type="button" value = "sand">sand</button>
+                        </div>
                     </dl>
                 </div><!--end #soil-->
                 </div><!--end .col-->
 
                 <div class="col-md-4 col-sm-12 center-block" align="center">
-                <div id="climate">
+                <div id="climate" class = "climate">
                     
                     <dl>
                         <dt>Climate</dt>
-                        <button type="button">continental</button>
-                        <button type="button">mediterranean</button>
+                        <div class = "climate">
+                            <button type="button" value = "continental">continental</button>
+                            <button type="button" value = "mediterranean">mediterranean</button>
+                        </div>
                     </dl>
                 </div>
                 <!--end #climate-->
@@ -117,9 +123,13 @@
             <!--end .row-->
         </div>
         <!--end #factors-->
+        <button type = "button" onclick = "calculateResult()"> Finished! </button>
+        <div class = "result" style = "visibility: hidden">
+        </div>
 
     </div>
     <!--end container-->
+    <script type = "text/javascript" src = "main.js"></script>
 
 </body>
 
