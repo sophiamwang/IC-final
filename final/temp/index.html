@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <title>Terroir Influencial Factors</title>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Advent+Pro:100,200,300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:100,100i,400" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   
+    <style>
+        body {
+            font-family: 'Advent Pro', sans-serif;
+            font-weight: 100;
+            background-color: #2d2d2d;
+            background-image: url(germany-2064517.jpg);
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            color: white;
+        }
+        p {
+            font-size: 3em;
+            text-align: center;
+            margin-top: 3%;
+        }
+        h1 {
+            font-family: 'Alegreya Sans SC', sans-serif;
+            font-weight: 100;
+            text-align: center;
+            font-size: 3em;
+            padding-bottom: 3%;
+        }
+        dt {
+            font-size: 2.5em;
+            letter-spacing: 5%;
+            font-family: 'Advent Pro', sans-serif;
+            font-weight: 200;
+            padding-bottom: 4%;
+        }
+        dl {
+            display: inline-block;
+            vertical-align: top;
+            padding-left: 0;
+            float: left;
+        }
+        #factors {
+            display: inline;
+        }
+        button {
+            background-color: transparent;
+            font-family: 'Advent Pro', sans-serif;
+            font-weight: 100;
+            font-size: 2em;
+            width: 300px;
+            height: 100px;
+            margin-bottom: 10%;
+            align-content: center;
+        }
+        button:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        a:active {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        a:visited {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5%;
+            padding-top: 2%;
+            margin: 6% auto;
+        }
+        #finish {
+            margin: 0 auto;
+            position: relative;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1><i>Influencial Factors of Terroir on Grape and Wine Shared</i></h1>
+
+        <div id="factors">
+
+            <div class="row">
+                <div class="col-md-4 col-sm-12 center-block" align="center">
+                <div id="grape">
+                    <dl>
+                        <dt>Grape Type</dt>
+                        <div class = "temperature">
+                            <button onclick="changeColor('grape1')" type="button" value="pinot" id="grape1">Pinot Noir</button>
+                            <button onclick="changeColor('grape2')" type="button" value="syrah" id="grape2">Syrah/Shiraz</button>
+                            <button onclick="changeColor('grape3')" type="button" value="cabernet" id="grape3">Cabernet Sauvignon</button>
+                        </div>
+                    </dl>
+                </div><!--end #grape-->
+                </div>
+
+                <div class="col-md-4 col-sm-12 center-block" align="center">
+                <div id="temp">
+                    <dl>
+                        <dt>Temperature</dt>
+                        <div class = "temperature">
+                            <button onclick="changeColor('temperature1')" type="button" value="cool" id="temperature1">cool</button>
+                            <button onclick="changeColor('temperature2')" type="button" value="warm" id="temperature2">warm</button>
+                            <button onclick="changeColor('temperature3')" type="button" value="moderate" id="temperature3">moderate</button>
+                        </div>
+                    </dl>
+                </div><!--end #temp-->
+                </div><!--end .col-->
+
+                <div class="col-md-4 col-sm-12 center-block" align="center">
+                <div id="soil" class="soil">
+                    
+                    <dl>
+                        <dt>Soil</dt>
+                        <div class="soil">
+                            <button onclick="changeColor('soil1')" type="button" value="stone/gravel" id="soil1">stone/gravel</button>
+                            <button onclick="changeColor('soil2')" type="button" value="sand" id="soil2">sand</button>
+                            <button onclick="changeColor('soil3')" type="button" value="clay" id="soil3">clay</button>
+                        </div>
+                    </dl>
+                </div><!--end #soil-->
+                </div><!--end .col-->
+
+                <div class="col-md-4 col-sm-12 center-block" align="center">
+                <div id="sun" class="sun">
+                    
+                    <dl>
+                        <dt>Sun</dt>
+                        <div class = "sun">
+                            <button onclick="changeColor('sun1')" type="button" value="alot" id="sun1">a lot</button>
+                            <button onclick="changeColor('sun2')" type="button" value="sufficient" id="sun2">sufficient</button>
+                            <button onclick="changeColor('sun3')" type="button" value="notalot" id="sun3">not alot</button>
+                        </div>
+                    </dl>
+                </div>
+                </div><!--end .col-->
+
+                <div class="col-md-4 col-sm-12 center-block" align="center">
+                <div id="rain" class="rain">
+                    
+                    <dl>
+                        <dt>Rain</dt>
+                        <div class = "rain">
+                            <button onclick="changeColor('rain1')" type="button" value="toomuch" id="rain1">too much</button>
+                            <button onclick="changeColor('rain2')" type="button" value="sufficient" id="rain2">sufficient</button>
+                            <button onclick="changeColor('rain3')" type="button" value="notalot" id="sun3">not alot</button>
+                        </div>
+                    </dl>
+                </div>
+                </div>
+            
+            </div>
+            <!--end .row-->
+        </div>
+        <!--end #factors-->
+        
+            <div align="center">
+                <button type="button" onclick="calculateResult()" id="finish">Finished!</button>
+            </div>
+        
+        <div class="result" style="visibility: hidden">
+        </div>
+
+    </div>
+    <!--end container-->
+    
+    <script type = "text/javascript" src = "main.js"></script>
+
+</body>
+
+</html>
