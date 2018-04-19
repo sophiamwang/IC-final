@@ -78,7 +78,6 @@ let userInput = {
     climate: undefined
 };
 //search through possibilities untill you find the same combination as the user input
-//POTENTIAL ISSUE: what if user does not click one button from each category?
 
 function calculateResult(){
 	//first make sure that the user clicked 3 options
