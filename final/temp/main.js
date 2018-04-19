@@ -77,8 +77,9 @@ function calculateResult() {
             return element;
         }
     });
+    console.log("user input ", userInput);
     let display = document.querySelector(".result");
-    let answer = document.createElement("p");
+    let answer = document.querySelector("p");
     if (result.length === 0){
         answer.textContent = "Your choices do not produce a valid wine type";
     }
@@ -101,9 +102,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             if (button.backgroundColor == "rgba(255, 255, 255, 0.5)") {
                 button.backgroundColor = "rgb(0,0,0)"
             }
-
-            console.log("user input ", userInput);
-
         });
     });
 });
