@@ -60,8 +60,6 @@ const possibilities = [{
             sun:"alot",
             rain:"toomuch",
         }
-    },
-    
     }];
 
 
@@ -73,38 +71,20 @@ let userInput = {
     rain: undefined
 };
 //search through possibilities untill you find the same combination as the user input
-//POTENTIAL ISSUE: what if user does not click one button from each category?
-
-function calculateResult(){
-	//first make sure that the user clicked 3 options
-	if (userInput.grape && userInput.temperature && userInput.soil && userInput.sun && userInput.rain){
-		let result = possibilities.filter(function(element) {
-									if (element.combo.grape === userInput.grape && element.combo.temperature === userInput.temperature && element.combo.soil === userInput.soil && element.combo.sun === userInput.sun && element.combo.rain === userInput.rain  ){
-										return element;
-									}
-								});
-		console.log("result type ", result[0].type);
-		let display = document.querySelector(".result");
-		let answer = document.createElement("p");
-		answer.textContent = "Your wine type is ..." + result[0].type;
-		display.appendChild(answer);
-		display.style.visibility = "visible";
-	}
-	else{
-		console.log("user did not select each variable");
-	}
-}
-
 function calculateResult() {
     let result = possibilities.filter(function (element) {
         if (element.combo.grape === userInput.grape && element.combo.temperature === userInput.temperature && element.combo.soil === userInput.soil && element.combo.sun === userInput.sun && element.combo.rain === userInput.rain) {
             return element;
         }
     });
-    console.log("result type ", result[0].type);
     let display = document.querySelector(".result");
     let answer = document.createElement("p");
-    answer.textContent = "Your wine type is ..." + result[0].type;
+    if (result.length === 0){
+        answer.textContent = "Your choices do not produce a valid wine type";
+    }
+    else{
+        answer.textContent = "Your wine type is ..." + result[0].type;
+    }
     display.appendChild(answer);
     display.style.visibility = "visible";
 
@@ -117,12 +97,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
             //console.log("button text content ", this.textContent);
             let parent = this.parentNode;
             //	console.log("button parent ", this.parentNode);
-            userInput[parent.className] = this.textContent;
+            userInput[parent.className] = this.value;
             if (button.backgroundColor == "rgba(255, 255, 255, 0.5)") {
                 button.backgroundColor = "rgb(0,0,0)"
             }
 
-            //console.log("user input ", userInput);
+            console.log("user input ", userInput);
 
         });
     });
