@@ -89,7 +89,21 @@
         <h1><i>Influencial Factors of Terroir on Grape and Wine Shared</i></h1>
 
         <div id="factors">
+
             <div class="row">
+                <div class="col-md-4 col-sm-12 center-block" align="center">
+                <div id="grape">
+                    <dl>
+                        <dt>Grape Type</dt>
+                        <div class = "grape">
+                            <button onclick="changeColor('grape1')" type="button" value="pinot" id="grape1">Pinot Noir</button>
+                            <button onclick="changeColor('grape2')" type="button" value="syrah" id="grape2">Syrah/Shiraz</button>
+                            <button onclick="changeColor('grape3')" type="button" value="cabernet" id="grape3">Cabernet Sauvignon</button>
+                        </div>
+                    </dl>
+                </div><!--end #grape-->
+                </div>
+
                 <div class="col-md-4 col-sm-12 center-block" align="center">
                 <div id="temp">
                     <dl>
@@ -97,6 +111,7 @@
                         <div class = "temperature">
                             <button onclick="changeColor('temperature1')" type="button" value="cool" id="temperature1">cool</button>
                             <button onclick="changeColor('temperature2')" type="button" value="warm" id="temperature2">warm</button>
+                            <button onclick="changeColor('temperature3')" type="button" value="moderate" id="temperature3">moderate</button>
                         </div>
                     </dl>
                 </div><!--end #temp-->
@@ -110,44 +125,13 @@
                         <div class="soil">
                             <button onclick="changeColor('soil1')" type="button" value="stone/gravel" id="soil1">stone/gravel</button>
                             <button onclick="changeColor('soil2')" type="button" value="sand" id="soil2">sand</button>
+                            <button onclick="changeColor('soil3')" type="button" value="clay" id="soil3">clay</button>
                         </div>
                     </dl>
                 </div><!--end #soil-->
                 </div><!--end .col-->
-
-                <div class="col-md-4 col-sm-12 center-block" align="center">
-                <div id="grape" class="grape">
-                    
-                    <dl>
-                        <dt>Grape</dt>
-                        <div class = "grape">
-                            <!--
-                            <button onclick="changeColor('climate1')" type="button" value="continental" id="climate1">continental</button>
-                            <button onclick="changeColor('climate2')" type="button" value="mediterranean" id="climate2">mediterranean</button>
-                            -->
-                            <button type = "button" value = "pinot" id = "pinot"> Pinot </button>
-                            <button type = "button" value = "syrah" id = "syrah"> Syrah </button>
-                            <button type = "button" value = "cabernet" id = "cabernet"> Cabernet </button>
-                        </div>
-                    </dl>
-                </div>
-
-                </div><!--end .col-->
-                <div class="col-md-4 col-sm-12 center-block" align="center">
-                <div id = "sun" class = "sun">
-                    <button type = "button" value = "notalot"> Not a lot  </button>
-                    <button type = "button" value = "sufficient"> Sufficient </button>
-                    <button type = "button" value = "alot"> A lot </button>
-
-               </div>
-
-                <div class="col-md-4 col-sm-12 center-block" align="center">
-                <div id = "rain" class = "rain">
-                    <button type = "button" value = "notalot"> Not a lot  </button>
-                    <button type = "button" value = "sufficient"> Sufficient </button>
-                    <button type = "button" value = "toomuch"> Too much </button>
-                </div>
-
+            
+            </div>
             <!--end .row-->
         </div>
         <!--end #factors-->
@@ -162,7 +146,7 @@
     </div>
     <!--end container-->
     
-    <script type = "text/javascript" src = "temp/main.js"></script>
+    <script type = "text/javascript" src = "main.js"></script>
 
 </body>
 
