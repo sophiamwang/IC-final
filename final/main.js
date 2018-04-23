@@ -52,9 +52,9 @@ const possibilities = [{
 
 //list of user input
 let userInput = {
-    grape: undefined,
-    temperature: undefined,
-    soil: undefined
+    grape: "",
+    temperature: "",
+    soil: ""
 };
 
 //search through possibilities untill you find the same combination as the user input
@@ -62,36 +62,42 @@ function calculateResult() {
     let result = possibilities.filter(function (element) {
         if (
             //if all 3 inputs match
-            element.combo.grape === userInput.grape && element.combo.temperature === userInput.temperature && element.combo.soil === userInput.soil || 
-            
+            element.combo.grape === userInput.grape && element.combo.temperature === userInput.temperature && element.combo.soil === userInput.soil ||
+
             //if grape and temperature match
-            element.combo.grape === userInput.grape && element.combo.temperature === userInput.temperature || 
-            
+            element.combo.grape === userInput.grape && element.combo.temperature === userInput.temperature ||
+
             //if temperature and soil match
-            element.combo.temperature === userInput.temperature && element.combo.soil === userInput.soil || 
-            
+            element.combo.temperature === userInput.temperature && element.combo.soil === userInput.soil ||
+
             //if grape and soil match
             element.combo.grape === userInput.grape && element.combo.soil === userInput.soil) {
-            
+
             //return result
             return element;
         }
     });
-    
+
     let display = document.querySelector(".result");
-    let answer = document.createElement("p");
-    
+    let answer = document.querySelector("p");
+
     //if user input doesn't match any wine type
     if (result.length === 0){
         answer.textContent = "Your choices do not produce a valid wine type";
     }
     //display wine type
     else{
-        answer.textContent = "Your wine type is ..." + result[0].type;
+        answer.textContent = "Your wine type is ..." + result[0].type + ". What does it smell like? Pick up a olfactory device next to the screen and explore!";
     }
+
     display.appendChild(answer);
     display.style.visibility = "visible";
 
+    //remove the selected class after displaying result
+    const allButtons = document.querySelectorAll("button");
+    allButtons.forEach(function(button){
+    	button.classList.remove("selected");
+    });
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
@@ -105,10 +111,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
             if (button.backgroundColor == "rgba(255, 255, 255, 0.5)") {
                 button.backgroundColor = "rgb(0,0,0)"
             }
-            
+            this.classList.toggle("selected");
             //check user input
             console.log("user input ", userInput);
-
         });
     });
 });
@@ -123,12 +128,17 @@ function changeColor(btn) {
     var other2 = document.getElementById(category + (5 - buttonId - (buttonId % 3)) );
 //    console.log((category + ((3 % buttonId) + 1)));
 //    console.log(category + ((3 % ((3 % buttonId) + 1)) + 1));
+    
+    //change clicked buttons' colors
     if (property.style.backgroundColor != "rgba(255, 255, 255, 0.5)") {
         property.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
+        property.style.borderColor = "rgb(255, 255, 255)";
         other.style.backgroundColor = 'transparent';
         other2.style.backgroundColor = 'transparent';
+        other.style.borderColor = 'rgb(255, 255, 255)';
+        other.style.borderColor = 'rgb(255, 255, 255)';
     } else {
         other.style.backgroundColor = 'transparent';
+        other.style.borderColor = 'rgb(255, 255, 255)';
     }
 }
-

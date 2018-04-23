@@ -2,15 +2,15 @@
 <html lang="en">
 
 <head>
-    
+
     <title>Terroir Influencial Factors</title>
-    
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Advent+Pro:100,200,300,400" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:100,100i,400" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   
+
     <style>
         body {
             font-family: 'Advent Pro', sans-serif;
@@ -60,15 +60,19 @@
             height: 100px;
             margin-bottom: 10%;
             align-content: center;
+            border-color: white;
         }
         button:hover {
             background-color: rgba(255, 255, 255, 0.5);
+            border-color: white;
         }
         a:active {
             background-color: rgba(255, 255, 255, 0.5);
+            border-color: white;
         }
         a:visited {
             background-color: rgba(255, 255, 255, 0.5);
+            border-color: white;
         }
         .container {
             background-color: rgba(0, 0, 0, 0.5);
@@ -80,7 +84,12 @@
             margin: 0 auto;
             position: relative;
         }
-        
+        .selected {
+        	border-style: solid;
+        	border-color: green;
+        	background-color: gray;
+        }
+
     </style>
 </head>
 
@@ -110,8 +119,8 @@
                         <dt>Temperature</dt>
                         <div class = "temperature">
                             <button onclick="changeColor('temperature1')" type="button" value="cool" id="temperature1">cool</button>
-                            <button onclick="changeColor('temperature2')" type="button" value="warm" id="temperature2">warm</button>
-                            <button onclick="changeColor('temperature3')" type="button" value="moderate" id="temperature3">moderate</button>
+                            <button onclick="changeColor('temperature2')"type="button" value="warm" id="temperature2">warm</button>
+                            <button onclick="changeColor('temperature3')"type="button" value="moderate" id="temperature3">moderate</button>
                         </div>
                     </dl>
                 </div><!--end #temp-->
@@ -119,7 +128,7 @@
 
                 <div class="col-md-4 col-sm-12 center-block" align="center">
                 <div id="soil" class="soil">
-                    
+
                     <dl>
                         <dt>Soil</dt>
                         <div class="soil">
@@ -131,50 +140,22 @@
                 </div><!--end #soil-->
                 </div><!--end .col-->
 
-                <div class="col-md-4 col-sm-12 center-block" align="center">
-                <div id="sun" class="sun">
-                    
-                    <dl>
-                        <dt>Sun</dt>
-                        <div class = "sun">
-                            <button onclick="changeColor('sun1')" type="button" value="alot" id="sun1">a lot</button>
-                            <button onclick="changeColor('sun2')" type="button" value="sufficient" id="sun2">sufficient</button>
-                            <button onclick="changeColor('sun3')" type="button" value="notalot" id="sun3">not a lot</button>
-                        </div>
-                    </dl>
-                </div>
-                </div><!--end .col-->
-
-                <div class="col-md-4 col-sm-12 center-block" align="center">
-                <div id="rain" class="rain">
-                    
-                    <dl>
-                        <dt>Rain</dt>
-                        <div class = "rain">
-                            <button onclick="changeColor('rain1')" type="button" value="toomuch" id="rain1">too much</button>
-                            <button onclick="changeColor('rain2')" type="button" value="sufficient" id="rain2">sufficient</button>
-                            <button onclick="changeColor('rain3')" type="button" value="notalot" id="sun3">not a lot</button>
-                        </div>
-                    </dl>
-                </div>
-                </div>
-            
             </div>
             <!--end .row-->
         </div>
         <!--end #factors-->
-        
+
             <div align="center">
                 <button type="button" onclick="calculateResult()" id="finish">Finished!</button>
             </div>
-        
+
         <div class="result" style="visibility: hidden">
             <p></p>
         </div>
 
     </div>
     <!--end container-->
-    
+
     <script type = "text/javascript" src = "main.js"></script>
 
 </body>
