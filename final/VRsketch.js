@@ -6,7 +6,7 @@ var getVariables = {};
 
 // our models
 var ground, wine, table, garden,grapes;
-var grapeOBJ,grapeMTL,wineOBJ,wineMTL;
+var wineOBJ,wineMTL,grapeOBJ,grapeMTL;
 
 function setup() {
 	
@@ -18,10 +18,6 @@ function setup() {
 	};
 	console.log("object"+getVariables);
 
-	//change text based on which wine
-	var text= document.getElementById("text");
-	text.value = getVariables.wineType;
-	console.log("text"+text.value);
 	
 	//change a-sky based on user chosen climate
 	if(getVariables.temperature == "warm"){
@@ -50,21 +46,29 @@ function setup() {
 	world.add(container);
 
 	//change text
-	document.getElementById("text").setAttribute("value","");
+	document.getElementById("text").setAttribute("value",getVariables.wineType);
 
 	//set grape
 	if (getVariables.grape =="pinot"){
-		grapeOBJ = '';
-		grapeMTL = '';
+		grapeOBJ = 'grapes_obj';
+		grapeMTL ='grapes_mtl';
+		wineOBJ ='wine_obj';
+		wineMTL ='wine_mtl';
 	}
 	else if(getVariables.grape=="syrah"){
-		grapeOBJ = '';
-		grapeMTL = '';
+		grapeOBJ = 'grapes_obj';
+		grapeMTL ='grapes_mtl';
+		wineOBJ ='wine_obj';
+		wineMTL ='wine_mtl';
 	}
 	else if(getVariables.grape=="cabernet"){
-		grapeOBJ = '';
-		grapeMTL = '';
-	}
+		grapeOBJ = 'grapes_obj';
+		grapeMTL ='grapes_mtl';
+		wineOBJ ='wine_obj';
+		wineMTL ='wine_mtl';
+	};
+
+
 
 	//create floor plane
 	ground = new Plane({
@@ -109,8 +113,8 @@ function setup() {
 	world.add(grapes);
 
 	wine = new OBJ({
-		asset: 'wine_obj',
-		mtl: 'wine_mtl',
+		asset: wineOBJ,
+		mtl: wineMTL,
 		x: 0,
 		y: 0.2,
 		z: 0.5,
@@ -124,8 +128,8 @@ function setup() {
 	world.add(wine);
 
 	table = new OBJ({
-		asset:grapeOBJ,
-		mtl:grapeMTL,
+		asset:'table_obj',
+		mtl:'table_mtl',
 		x: -0.1,
 		y: -3.5,
 		z: 0.3,
