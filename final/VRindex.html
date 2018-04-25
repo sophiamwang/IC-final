@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="UTF-8">
+
+		<!-- P5 libraries -->
+		<script language="javascript" type="text/javascript" src="../libraries/p5.js"></script>
+		<script src="../libraries/p5.sound.min.js"></script>
+
+
+		<!-- A-Frame libraries -->
+		<script language="javascript" type="text/javascript" src="../libraries/aframe.min.js"></script>
+
+		<!-- AFrameP5 library -->
+		<script language="javascript" type="text/javascript" src="../libraries/aframep5.js"></script>
+
+		<!-- P5 Sketch -->
+		<script language="javascript" type="text/javascript" src="VRsketch.js"></script>
+
+	</head>
+	<body>
+
+		<!-- container to hold our VR scene - make sure to give this element an ID of 'VRScene' -->
+		<a-scene id="VRScene">
+			<a-assets id="VARAssets">
+
+				<img id="skyModerate" src="images/sky.jpg">
+				<img id="skyWarm" src="images/skyWarm.jpg">
+				<img id="skyCool" src="images/skyCool.jpg">				
+				<a-asset id="wine_obj" src="images/wine/model.obj"></a-asset>
+				<a-asset id="wine_mtl" src="images/wine/materials.mtl"></a-asset>
+				<a-asset id="garden_obj" src="images/garden/Garden.obj"></a-asset>
+				<a-asset id="garden_mtl" src="images/garden/Garden.mtl"></a-asset>
+				<a-asset id="table_obj" src="images/table/table.obj"></a-asset>
+				<a-asset id="table_mtl" src="images/table/table.mtl"></a-asset>
+				<a-asset id="grapes_obj" src="images/grapes/model.obj"></a-asset>
+				<a-asset id="grapes_mtl" src="images/grapes/materials.mtl"></a-asset>
+			</a-assets>
+			<a-sky id="theSky" src="#skyModerate" color="rgb(255,255,255)"></a-sky>
+			<a-text id="text" value="hello world!"></a-text>
+
+		</a-scene>
+
+	</body>
+</html>

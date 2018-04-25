@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,8 +11,16 @@
     <link href="https://fonts.googleapis.com/css?family=Advent+Pro:100,200,300,400" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:100,100i,400" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <!-- P5 libraries -->
+    <script language="javascript" type="text/javascript" src="../libraries/p5.js"></script>
+
+    <!-- P5 Sketch -->
    
     <style>
+        #hidden{
+            display:none;
+            /*if want to change must have displaY: no prop; */
+        }
         body {
             font-family: 'Advent Pro', sans-serif;
             font-weight: 100;
@@ -33,6 +42,10 @@
             font-weight: 100;
             text-align: center;
             font-size: 3em;
+            padding-bottom: 3%;
+        }
+        h2 {
+            font-weight: 100;
             padding-bottom: 3%;
         }
         dt {
@@ -87,9 +100,24 @@
 <body>
     <div class="container">
         <h1><i>Influencial Factors of Terroir on Grape and Wine Shared</i></h1>
+        <h2>The taste of wine is tremendously affected by the secret of nature/terroir... Explore the mystery by selecting your type of grapes, temperature and soil, click 'Finish' to see how your wine taste like!</h2>
 
         <div id="factors">
+
             <div class="row">
+                <div class="col-md-4 col-sm-12 center-block" align="center">
+                <div id="grape">
+                    <dl>
+                        <dt>Grape Type</dt>
+                        <div class = "grape">
+                            <button onclick="changeColor('grape1')" type="button" value="pinot" id="grape1">Pinot Noir</button>
+                            <button onclick="changeColor('grape2')" type="button" value="syrah" id="grape2">Syrah/Shiraz</button>
+                            <button onclick="changeColor('grape3')" type="button" value="cabernet" id="grape3">Cabernet Sauvignon</button>
+                        </div>
+                    </dl>
+                </div><!--end #grape-->
+                </div>
+
                 <div class="col-md-4 col-sm-12 center-block" align="center">
                 <div id="temp">
                     <dl>
@@ -97,6 +125,7 @@
                         <div class = "temperature">
                             <button onclick="changeColor('temperature1')" type="button" value="cool" id="temperature1">cool</button>
                             <button onclick="changeColor('temperature2')" type="button" value="warm" id="temperature2">warm</button>
+                            <button onclick="changeColor('temperature3')" type="button" value="moderate" id="temperature3">moderate</button>
                         </div>
                     </dl>
                 </div><!--end #temp-->
@@ -110,23 +139,10 @@
                         <div class="soil">
                             <button onclick="changeColor('soil1')" type="button" value="stone/gravel" id="soil1">stone/gravel</button>
                             <button onclick="changeColor('soil2')" type="button" value="sand" id="soil2">sand</button>
+                            <button onclick="changeColor('soil3')" type="button" value="clay" id="soil3">clay</button>
                         </div>
                     </dl>
                 </div><!--end #soil-->
-                </div><!--end .col-->
-
-                <div class="col-md-4 col-sm-12 center-block" align="center">
-                <div id="climate" class="climate">
-                    
-                    <dl>
-                        <dt>Climate</dt>
-                        <div class = "climate">
-                            <button onclick="changeColor('climate1')" type="button" value="continental" id="climate1">continental</button>
-                            <button onclick="changeColor('climate2')" type="button" value="mediterranean" id="climate2">mediterranean</button>
-                        </div>
-                    </dl>
-                </div>
-                <!--end #climate-->
                 </div><!--end .col-->
             
             </div>
@@ -139,10 +155,15 @@
             </div>
         
         <div class="result" style="visibility: hidden">
+            <p></p>
         </div>
 
     </div>
     <!--end container-->
+
+    <!--need to listen for grape type, climate, and result-->
+    <iframe id="hidden" src=""> </iframe>
+
     
     <script type = "text/javascript" src = "main.js"></script>
 

@@ -1,117 +1,112 @@
 var count = 0;
 //possibilites contains all the possible combinations of input the user chooses
-// "cool"
-// "warm"
-// "stone/gravel"
-// "sand"
-// "continental"
-// "mediterranean"
+
 const possibilities = [{
-        type: "A",
+        type: "medium to low tannin, medium alcohol, medium high acidity, strawberry, cherry flavor",
         combo: {
+            grape:"pinot",
+            temperature: "moderate",
+            soil: "clay"
+        }
+    },
+    {
+        type: "medium tannin, medium high alcohol, medium high acidity, wet leave, vegetal flavor",
+        combo: {
+            grape:"pinot",
             temperature: "cool",
-            soil: "stone/gravel",
-            climate: "continental"
+            soil: "stone/gravel"
         }
     },
     {
-        type: "B",
+        type: "high tannin, medium alcohol, medium high acidity, berry fruit, pepper,   menthol, earthy flavor",
         combo: {
+            grape:"syrah",
             temperature: "cool",
-            soil: "stone/gravel",
-            climate: "mediterranean"
+            soil: "sand"
         }
     },
     {
-        type: "C",
+        type: "high & round tannin, high alcohol, medium acidity, spice, leather and baked fruit flavor",
         combo: {
-            temperature: "cool",
-            soil: "sand",
-            climate: "continental"
-        }
-    },
-    {
-        type: "D",
-        combo: {
-            temperature: "cool",
-            soil: "sand",
-            climate: "mediterranean"
-        }
-    },
-    {
-        type: "E",
-        combo: {
+            grape:"syrah",
             temperature: "warm",
-            soil: "stone/gravel",
-            climate: "continental"
+            soil: "sand"
         }
     },
     {
-        type: "F",
+        type: "medium & round tannin, low alcohol, low acidity, jammy flavor",
         combo: {
+            grape:"cabernet",
             temperature: "warm",
-            soil: "stone/gravel",
-            climate: "mediterranean"
+            soil: "sand"
         }
     },
     {
-        type: "G",
+        type: "high tannin, medium alcohol, medium acidity, ripe dark cherry fruit flavor",
         combo: {
+            grape:"cabernet",
             temperature: "warm",
-            soil: "sand",
-            climate: "continental"
-        }
-    },
-    {
-        type: "H",
-        combo: {
-            temperature: "warm",
-            soil: "sand",
-            climate: "mediterranean"
+            soil: "clay"
         }
     }];
 
-
+//list of user input
 let userInput = {
-    temperature: undefined,
-    soil: undefined,
-    climate: undefined
+    grape: "",
+    temperature: "",
+    soil: ""
 };
+
 //search through possibilities untill you find the same combination as the user input
-//POTENTIAL ISSUE: what if user does not click one button from each category?
-
-function calculateResult(){
-	//first make sure that the user clicked 3 options
-	if (userInput.temperature && userInput.soil && userInput.climate){
-		let result = possibilities.filter(function(element) {
-									if (element.combo.temperature === userInput.temperature && element.combo.soil === userInput.soil && element.combo.climate === userInput.climate){
-										return element;
-									}
-								});
-		console.log("result type ", result[0].type);
-		let display = document.querySelector(".result");
-		let answer = document.createElement("p");
-		answer.textContent = "Your wine type is ..." + result[0].type;
-		display.appendChild(answer);
-		display.style.visibility = "visible";
-	}
-	else{
-		console.log("user did not select each variable");
-	}
-}
-
 function calculateResult() {
+    //happens onclick finish button
+
+ //make VR scene visible
+
     let result = possibilities.filter(function (element) {
-        if (element.combo.temperature === userInput.temperature && element.combo.soil === userInput.soil && element.combo.climate === userInput.climate) {
+        if (
+            //if all 3 inputs match
+            element.combo.grape === userInput.grape && element.combo.temperature === userInput.temperature && element.combo.soil === userInput.soil ||
+
+            //if grape and temperature match
+            element.combo.grape === userInput.grape && element.combo.temperature === userInput.temperature ||
+
+            //if temperature and soil match
+            element.combo.temperature === userInput.temperature && element.combo.soil === userInput.soil ||
+
+            //if grape and soil match
+            element.combo.grape === userInput.grape && element.combo.soil === userInput.soil) {
+
+            //return result
             return element;
         }
     });
-    console.log("result type ", result[0].type);
+
     let display = document.querySelector(".result");
-    let answer = document.createElement("p");
-    answer.textContent = "Your wine type is ..." + result[0].type;
+    let answer = document.querySelector("p");
+
+    //if user input doesn't match any wine type
+    if (result.length === 0){
+        answer.textContent = "Your choices do not produce a valid wine type";
+    }
+    //display wine type
+    else{
+        answer.textContent = "Your wine type is ..." + result[0].type + ". What does it smell like? Pick up a olfactory device next to the screen and explore!";
+    }
+
     display.appendChild(answer);
     display.style.visibility = "visible";
+
+    //remove the selected class after displaying result
+    const allButtons = document.querySelectorAll("button");
+    allButtons.forEach(function(button){
+    	button.classList.remove("selected");
+    });
+
+    var iFrame = document.getElementById("hidden");
+    iFrame.style.display = "block";
+    iFrame.src=("VRindex.html?wineType="+result[0].type+"&temperature="+result[0].combo.temperature+"&grape="+result[0].combo.grape);
+
 
 }
 
@@ -122,27 +117,38 @@ document.addEventListener("DOMContentLoaded", function (event) {
             //console.log("button text content ", this.textContent);
             let parent = this.parentNode;
             //	console.log("button parent ", this.parentNode);
-            userInput[parent.className] = this.textContent;
+            userInput[parent.className] = this.value;
             if (button.backgroundColor == "rgba(255, 255, 255, 0.5)") {
                 button.backgroundColor = "rgb(0,0,0)"
             }
-
-            //console.log("user input ", userInput);
-
+            this.classList.toggle("selected");
+            //check user input
+            console.log("user input ", userInput);
         });
     });
 });
 
+//change button color when pressed
 function changeColor(btn) {
     var category = btn.substr(0,btn.length - 1);
     var buttonId = btn.substr(btn.length - 1);
+    console.log(buttonId);
     var property = document.getElementById(btn);
-    var other = document.getElementById(category + (buttonId % 2 + 1));
+    var other = document.getElementById(category + (buttonId % 3 + 1));
+    var other2 = document.getElementById(category + (5 - buttonId - (buttonId % 3)) );
+//    console.log((category + ((3 % buttonId) + 1)));
+//    console.log(category + ((3 % ((3 % buttonId) + 1)) + 1));
+    
+    //change clicked buttons' colors
     if (property.style.backgroundColor != "rgba(255, 255, 255, 0.5)") {
         property.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
+        property.style.borderColor = "rgb(255, 255, 255)";
         other.style.backgroundColor = 'transparent';
+        other2.style.backgroundColor = 'transparent';
+        other.style.borderColor = 'rgb(255, 255, 255)';
+        other.style.borderColor = 'rgb(255, 255, 255)';
     } else {
         other.style.backgroundColor = 'transparent';
+        other.style.borderColor = 'rgb(255, 255, 255)';
     }
 }
-
