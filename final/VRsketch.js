@@ -6,6 +6,7 @@ var getVariables = {};
 
 // our models
 var ground, wine, table, garden,grapes;
+var grapeOBJ,grapeMTL,wineOBJ,wineMTL;
 
 function setup() {
 	
@@ -51,6 +52,20 @@ function setup() {
 	//change text
 	document.getElementById("text").setAttribute("value","");
 
+	//set grape
+	if (getVariables.grape =="pinot"){
+		grapeOBJ = '';
+		grapeMTL = '';
+	}
+	else if(getVariables.grape=="syrah"){
+		grapeOBJ = '';
+		grapeMTL = '';
+	}
+	else if(getVariables.grape=="cabernet"){
+		grapeOBJ = '';
+		grapeMTL = '';
+	}
+
 	//create floor plane
 	ground = new Plane({
 		x:0, 
@@ -80,18 +95,8 @@ function setup() {
 	world.add(garden);
 	// add OBJ models
 	grapes = new OBJ({
-		if (getVariables.grape =="pinot"){
-			asset: 'grapes_obj',
-			mtl: 'grapes_mtl',
-		}
-		else if(getVariables.grape=="syrah"){
-			asset: 'grapes_obj',
-			mtl: 'grapes_mtl',
-		}
-		else if(getVariables.grape=="cabernet"){
-			asset: 'grapes_obj',
-			mtl: 'grapes_mtl',
-		}
+		asset: grapeOBJ,
+		mtl: grapeMTL,
 		x:0,
 		y:3,
 		z:1,
@@ -119,18 +124,8 @@ function setup() {
 	world.add(wine);
 
 	table = new OBJ({
-		if (getVariables.grape =="pinot"){
-			asset: 'grapes_obj',
-			mtl: 'grapes_mtl',
-		}
-		else if(getVariables.grape=="syrah"){
-			asset: 'grapes_obj',
-			mtl: 'grapes_mtl',
-		}
-		else if(getVariables.grape=="cabernet"){
-			asset: 'grapes_obj',
-			mtl: 'grapes_mtl',
-		}
+		asset:grapeOBJ,
+		mtl:grapeMTL,
 		x: -0.1,
 		y: -3.5,
 		z: 0.3,
