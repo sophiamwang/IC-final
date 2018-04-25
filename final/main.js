@@ -26,7 +26,7 @@ const possibilities = [{
         }
     },
     {
-        type: "high & round tannin, high alcohol, medium acidity, spice, leather and baked fruit flavor",
+        type: "high and round tannin, high alcohol, medium acidity, spice, leather and baked fruit flavor",
         combo: {
             grape:"syrah",
             temperature: "warm",
@@ -34,7 +34,7 @@ const possibilities = [{
         }
     },
     {
-        type: "medium & round tannin, low alcohol, low acidity, jammy flavor",
+        type: "medium a d round tannin, low alcohol, low acidity, jammy flavor",
         combo: {
             grape:"cabernet",
             temperature: "warm",
